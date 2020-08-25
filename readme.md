@@ -1,5 +1,10 @@
 # Part 1: Get up and running locally
 
+## Getting Started
+
+ - Fork, Clone this repository
+ - cd in to the project, `npm install`
+ - `npm start` to start the server
 
 ## Getting the database up and running
 
@@ -20,8 +25,6 @@ $ psql YOUR_POSTGRES_USERNAME -d example_db -f db/seed.sql
 
   - Go in to your psql repl, connect to the "example_db" and confirm everything is there
 
-
-## Getting the server up and running
 
 
 # Part 2: Rework so our application works in a deployed environment
@@ -75,11 +78,12 @@ const express = require('express');
 const app = express();
 const db = require('./db/db_configuration');
 
-app.get('/', (req, res) => {
+app.get('api/students', (req, res) => {
     db.query('SELECT * FROM student', (err, data) => {
         res.json(data.rows);
     })
 })
+
 
 // TODO/EXAMPLE: Replace 3000 with process.env.PORT
 app.listen(process.env.PORT, () => {
