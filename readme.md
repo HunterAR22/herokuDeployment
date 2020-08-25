@@ -14,14 +14,14 @@
 ```sh
 $ psql YOUR_POSTGRES_USERNAME -d example_db -f db/schema.sql
 ```
-(Replace the above command with your postgres username)
+(For the above command, replace with your own username)
 
   - Tell psql to run the code in `db/seed.sql`, this will "seed" the database for us, in other words add some sample data for us to work with.
   - **in command line:**
 ```sh
 $ psql YOUR_POSTGRES_USERNAME -d example_db -f db/seed.sql
 ```
-(Replace the above command with your postgres username)
+(For the above command, replace with your own username)
 
   - Go in to your psql repl, connect to the "example_db" and confirm everything is there
 
