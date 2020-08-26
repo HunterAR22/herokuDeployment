@@ -145,7 +145,5 @@ Finally don't forget to add and commit your code!
 
 # Part 3: Deploying to Heroku
 
- - Download Heroku CLI, Read Deployment instructions: [Tutorial](https://devcenter.heroku.com/articles/git)
- - Setup your online Postgres Database at Heroku: [Postgres Tutorial](https://devcenter.heroku.com/articles/heroku-postgresql)
-
-**Reminder: Heroku will provide it's own enviromental variables, and expect your application to reference them, so read carefully**
+ - Download Heroku CLI, Work Through Heroku Tutorial [Tutorial](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true)
+ - Come back and take the lessons learned from the tutorial above to deploy the app in this repository.
