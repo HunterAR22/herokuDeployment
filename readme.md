@@ -73,7 +73,7 @@ Replace values in our code with the placeholder variables, **see comments in the
 
 *server.js*
 ```js
-require(‘dotenv’).config() // TODO: ADD THIS LINE
+require('dotenv').config() // TODO: ADD THIS LINE
 const express = require('express');
 const app = express();
 const db = require('./db/db_configuration');
