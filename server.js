@@ -4,7 +4,7 @@ const db = require('./db/db_configuration');
 
 app.use(express.static('public'))
 
-app.get('api/students', (req, res) => {
+app.get('/api/students', (req, res) => {
     db.query('SELECT * FROM student', (err, data) => {
         res.json(data.rows);
     })
