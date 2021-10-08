@@ -2,9 +2,9 @@ DROP DATABASE IF EXISTS example_db;
 
 CREATE DATABASE example_db;
 
-CREATE TABLE STUDENT(
-   ID SERIAL PRIMARY KEY     NOT NULL,
-   NAME              TEXT    NOT NULL,
-   CATS              INT     NOT NULL,
-   PLACE           CHAR(50)
+CREATE TABLE student(
+   id SERIAL PRIMARY KEY NOT NULL,
+   name TEXT NOT NULL,
+   cats INT NOT NULL,
+   place CHAR(50)
 );
