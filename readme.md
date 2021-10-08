@@ -4,9 +4,9 @@
 
 ### Getting Started
 
-1. Fork and clone this repository
-1. `$ cd` into the project, and run `$ npm install`
-1. Run `$ npm start` to start the server
+1. Fork and clone this repository.
+1. `$ cd` into the project, and run `$ npm install`.
+1. Run `$ npm start` to start the server.
 
 ### Getting the database up and running
 
@@ -144,5 +144,5 @@ Finally don't forget to add and commit your code!
 
 ## Part 3: Deploying to Heroku
 
-- Download Heroku CLI, Work Through Heroku [Tutorial](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true)
+- Download Heroku CLI, Work Through Heroku [Tutorial](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true).
 - Come back and take the lessons learned from the tutorial above to deploy the app in this repository.
