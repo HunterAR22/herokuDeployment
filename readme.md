@@ -13,7 +13,7 @@
 - Tell `psql` to run the code in **db/schema.sql**, this will create the `example_db` database and the tables for us:
 
 ```sh
-$ psql -f db/schema.sql example_db
+$ psql -f db/schema.sql postgres
 ```
 
 - Tell `psql` to run the code in `db/seed.sql`:

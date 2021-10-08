@@ -2,6 +2,8 @@ DROP DATABASE IF EXISTS example_db;
 
 CREATE DATABASE example_db;
 
+DROP TABLE IF EXISTS student;
+
 CREATE TABLE student(
    id SERIAL PRIMARY KEY NOT NULL,
    name TEXT NOT NULL,
