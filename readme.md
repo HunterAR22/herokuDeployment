@@ -11,9 +11,9 @@
 
 - Tell `psql` to run the code in **db/migration.sql**, this will create the `example_db` database and the tables for us:
 
-```sh
-$ psql -f db/migration.sql
-```
+  ```sh
+  $ psql -f db/migration.sql
+  ```
 
 - Tell `psql` to run the code in `db/seed.sql`:
 
