@@ -6,14 +6,13 @@
 
 1. Fork and clone this repository
 1. `$ cd` into the project, and run `$ npm install`
-1. Run `$ npm start` to start the server
 
 ### Getting the database up and running
 
-- Tell `psql` to run the code in **db/schema.sql**, this will create the `example_db` database and the tables for us:
+- Tell `psql` to run the code in **db/migration.sql**, this will create the `example_db` database and the tables for us:
 
 ```sh
-$ psql -f db/schema.sql postgres
+$ psql -f db/migration.sql
 ```
 
 - Tell `psql` to run the code in `db/seed.sql`:
@@ -65,9 +64,7 @@ Add your enviroment variables as key/value pairs:
 # .env
 
 PORT=3000
-DATABASE_USER=postgres
-DATABASE_NAME=example_db
-DATABASE_PASSWORD=example
+DATABASE_URL=postgres://user:password@host:5432/database
 ```
 
 ### Step 3
@@ -89,33 +86,29 @@ app.get('api/students', (req, res) => {
 })
 
 
-// TODO/EXAMPLE: Replace 3000 with process.env.PORT
-app.listen(process.env.PORT, () => {
+// TODO: Replace 3000 with process.env.PORT
+app.listen(3000, () => {
     console.log('listening on Port 3000');
 })
 ```
 
 ```js
-// db/db_configuration.js
+// db/conn.js
 
 const { Pool } = require("pg");
 
 const pool = new Pool({
-  user: process.env.DATABASE_USER, // TODO/EXAMPLE: REPLACED WITH PLACEHOLDER
-  database: "example_db", // TODO: Replace process.env.DATABASE_NAME
-  password: "example", // TODO: Replace process.env.DATABASE_PASSWORD
+  connectionString: "postgres://localhost/example_db", // TODO: Replace with process.env.DATABASE_URL
 });
 
 module.exports = pool;
 ```
 
-We only need to require `require(‘dotenv’).config() ` in one place, the **entry point** of our code, where everything else is brought it and nothing is exported - our `server.js`. Once we do that, `dotenv` node package let's reference the enviroment variables we specified in `.env` with the `process.env` object (see the examples above).
+We only need to RUN `require(‘dotenv’).config() ` in one place, the **entry point** of our code, where everything else is brought it and nothing is exported -- In our case, `server.js`. Once we do that, the `dotenv` node package lets us reference the enviroment variables we specified in `.env` with the `process.env` object (see the examples above).
 
 ### Step 4
 
-Add `.env` to `.gitignore`. This tells git that we don't want to share this `.env` file with others.
-
-in `.gitignore`:
+Add `.env` to `.gitignore`. This tells git that we don't want to share this `.env` file with others":
 
 ```
 # .gitignore
@@ -126,7 +119,7 @@ node_modules
 
 ### Step 5
 
-Create a `.env.template` file for other developers to copy and fill in with their own information, then rename to `.env` so they have their own copy.
+Create a `.env.template` file for other developers to copy and fill in with their own information, then rename to `.env` so they have their own copy:
 
 ```sh
 $ touch .env.template
@@ -136,9 +129,7 @@ $ touch .env.template
 # .env.template
 
 PORT=
-DATABASE_USER=
-DATABASE_NAME=
-DATABASE_PASSWORD=
+DATABASE_URL=
 ```
 
 The template above is not used by your app, it's just there for other developers who want to run your application on their machine. It makes it easy for them to create their own `.env` file.
