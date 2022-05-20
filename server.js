@@ -1,16 +1,16 @@
-require("dotenv").config();
+
+require("dotenv").config(); // TODO: ADD THIS LINE
 const express = require("express");
-const db = require("./db/conn");
 const app = express();
+const db = require("./db/db_configuration");
 
-app.use(express.static("public"));
-
-app.get("/api/students", (_, res) => {
-  db.query("SELECT * FROM student").then((data) => {
+app.get("api/students", (req, res) => {
+  db.query("SELECT * FROM student", (err, data) => {
     res.json(data.rows);
   });
 });
 
-app.listen(3000, () => {
-  console.log(`listening on Port ${3000}`);
+// TODO: Replace 3000 with process.env.PORT
+app.listen(process.env.port, () => {
+  console.log(`listening on Port${process.env.port}`);
 });
